@@ -15,8 +15,15 @@ Repositório dedicado aos trabalhos práticos da disciplina homônima na Univers
 **GIT**  
 Windows: https://gitforwindows.org/  
 Linux: https://book.git-scm.com/download/linux  
-**Extensão Java para VS Code que deixa melhor que o NetBeans**  
-https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack  
+**bibliotecas importantes**  
+Instale as bibliotecas 
+NLTK (https://www.nltk.org/install.html) - terminal: pip install nltk
+    Adicionais: 
+            terminal: python -m nltk.downloader punkt (função nltk.sent_tokenize())
+
+Spacy (https://spacy.io/usage) - terminal: pip install -U spacy
+    Adicionais: 
+            terminal: python -m spacy download pt_core_news_sm (modelo português)
 
 ## Guia geral
 
