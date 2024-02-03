@@ -1,4 +1,4 @@
-# Processamento de Linguagem Natural 👺 - 
+# Processamento de Linguagem Natural ✅ 
 
 PLN é uma subárea da inteligência artificial (IA) que se concentra na interação entre computadores e linguagem humana. O objetivo principal do PLN é permitir que os computadores compreendam, interpretem e gerem linguagem humana de maneira significativa
 
