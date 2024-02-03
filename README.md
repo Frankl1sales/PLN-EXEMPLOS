@@ -16,14 +16,14 @@ Repositório dedicado aos trabalhos práticos da disciplina homônima na Univers
 Windows: https://gitforwindows.org/  
 Linux: https://book.git-scm.com/download/linux  
 **bibliotecas importantes**  
-Instale as bibliotecas 
-NLTK (https://www.nltk.org/install.html) - terminal: pip install nltk
-    Adicionais: 
-            terminal: python -m nltk.downloader punkt (função nltk.sent_tokenize())
+Instale as bibliotecas:
+- [NLTK](https://www.nltk.org/install.html)
+    - No terminal: `pip install nltk`
+    - Adicionais: `python -m nltk.downloader punkt` (função `nltk.sent_tokenize()`)
 
-Spacy (https://spacy.io/usage) - terminal: pip install -U spacy
-    Adicionais: 
-            terminal: python -m spacy download pt_core_news_sm (modelo português)
+- [Spacy](https://spacy.io/usage)
+    - No terminal: `pip install -U spacy`
+    - Adicionais: `python -m spacy download pt_core_news_sm` (modelo português)
 
 ## Guia geral
 
