@@ -39,7 +39,7 @@ def extrair_informacoes_produto(url):
         print(f"A requisição falhou com código de status: {response.status_code}")
 
 # URL da página do primeiro produto
-url_produto1 = "https://www.magazineluiza.com.br/colchao-queen-molas-ensacadas-com-pillow-top-extra-conforto-158x198x38cm-premium-sleep-bf-colchoes/p/afebjggj35/co/ccbq/?&=&seller_id=emcompre"
+url_produto1 = "https://www.magazineluiza.com.br/review/234661900/apple-iphone-13-128gb-estelar-tela-61-12mp/TE/IP13/?page=2"
 
 # Extrai informações do primeiro produto
 extrair_informacoes_produto(url_produto1)
