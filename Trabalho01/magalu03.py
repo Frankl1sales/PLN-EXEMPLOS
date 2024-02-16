@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL da página
-url = "https://www.magazineluiza.com.br/colchao-queen-molas-ensacadas-com-pillow-top-extra-conforto-158x198x38cm-premium-sleep-bf-colchoes/p/afebjggj35/co/ccbq/?&=&seller_id=emcompre"
+url = "https://www.magazineluiza.com.br/review/ecadg9ee4f/colchao-magnetico-queen-bio-massageador-eco-prince-eco-new-colchoes/CO/CCBQ/"
 
 # Faz a requisição GET
 response = requests.get(url)

@@ -4,17 +4,38 @@ import pandas as pd
 from pathlib import Path
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from nltk.probability import FreqDist
+import matplotlib.pyplot as plt
 
 def extrair_valor(soup, elemento, atributo):
     valor = soup.find(elemento, {"data-testid": atributo})
     return valor.text.strip() if valor else None
 
 def tokenizar_texto(texto):
-    return word_tokenize(texto)
+    tokens = word_tokenize(texto)
+     # Converte todos os tokens para minúsculas
+    tokens = [token.lower() for token in tokens]
+    # Remover vírgulas, pontos e espaços
+    tokens = [token.strip('., ') for token in tokens]
+    return tokens
 
 def remover_stopwords(tokens):
-    stop_words = set(stopwords.words('portuguese'))  # Lista de stopwords em português
-    return [token for token in tokens if token.lower() not in stop_words]
+    stop_words = set(stopwords.words('portuguese'))
+    # Remover stopwords
+    tokens = [token for token in tokens if token.lower() not in stop_words]
+    return tokens
+
+def analisar_palavras_mais_utilizadas(textos_tokenizados):
+    # Concatena todos os textos tokenizados
+    todos_tokens = [token for texto in textos_tokenizados for token in texto]
+    
+    # Calcula a frequência das palavras
+    freq_dist = FreqDist(todos_tokens)
+
+    # Plota o gráfico de frequência das palavras
+    freq_dist.plot(30, cumulative=False)
+    plt.show()
+
 
 def extrair_informacoes_produto(url):
     response = requests.get(url)
@@ -46,10 +67,10 @@ def extrair_informacoes_produto(url):
                 nome_text = nome.text.strip()
                 comentario_text = comentario.text.strip()
 
-                # Tokenização usando a função separada
+                # Tokenização usando a função atualizada
                 tokens_nome = tokenizar_texto(nome_text)
                 tokens_comentario = tokenizar_texto(comentario_text)
-                # Remoção de stopwords
+                # Remoção de stopwords usando a função atualizada
                 tokens_comentario = remover_stopwords(tokens_comentario)
                 # Adiciona um dicionário ao final da lista comentarios_produtos - duas chaves: nome e comentario
                 comentarios_produtos.append({"Nome": tokens_nome, "Comentário": tokens_comentario})
@@ -63,6 +84,8 @@ def extrair_informacoes_produto(url):
 
             print(f"Os comentários dos produtos foram salvos em {output_path_comentarios}")
 
+            # Analisa as palavras mais utilizadas nos comentários
+            analisar_palavras_mais_utilizadas(df_comentarios['Comentário'])
         elif ver_comentario != 'n':
             print("Opção inválida. Não serão exibidos os comentários.")
 
@@ -70,7 +93,7 @@ def extrair_informacoes_produto(url):
         print(f"A requisição falhou com código de status: {response.status_code}")
 
 # URL da página do primeiro produto
-url_produto1 = "https://www.magazineluiza.com.br/apple-iphone-14-128gb-meia-noite-61-12mp-ios-5g/p/237184000/te/ip14/"
+url_produto1 = "https://www.magazineluiza.com.br/apple-iphone-13-128gb-estelar-tela-61-12mp/p/234661900/te/ip13/"
 
 # Extrai informações do primeiro produto
 extrair_informacoes_produto(url_produto1)
